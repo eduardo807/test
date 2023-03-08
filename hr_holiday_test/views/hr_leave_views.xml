@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+    <menuitem
+        id="hr_leave_menu_new_request_inherit"
+        name="Holiday"
+        parent="hr.menu_hr_root"
+        action="hr_holidays.hr_leave_action_new_request"
+        sequence="100"/>
+        
+    <record id="hr_leave_inherit_view_tree" model="ir.ui.view">
+        <field name="name">hr.holidays.view.tree</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="create_uid"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
